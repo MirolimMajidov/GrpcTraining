@@ -2,7 +2,7 @@
 
 namespace GrpcServiceApi.Services;
 
-public interface IUserManagerService
+public interface IUserManagerRepository
 {
     public User[] GetAll();
     public User GetById(Guid userId);

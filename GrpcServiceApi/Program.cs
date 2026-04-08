@@ -7,12 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 builder.AddServiceDefaults();
 
-builder.Services.AddSingleton<IUserManagerService, UserManagerService>();
+builder.Services.AddSingleton<IUserManagerRepository, UserManagerRepository>();
 
 var app = builder.Build();
 
 // Seed initial users
-var userManager = app.Services.GetRequiredService<IUserManagerService>();
+var userManager = app.Services.GetRequiredService<IUserManagerRepository>();
 userManager.Create(new User { FirstName = "Alice", LastName = "Smith", Age = 30 });
 userManager.Create(new User { FirstName = "Bob", LastName = "Johnson", Age = 25 });
 

@@ -3,7 +3,7 @@ using GrpcServiceApi.Entities;
 
 namespace GrpcServiceApi.Services;
 
-public class UserManagerService : IUserManagerService
+public class UserManagerRepository : IUserManagerRepository
 {
     private readonly ConcurrentDictionary<Guid, User> _users = new();
 

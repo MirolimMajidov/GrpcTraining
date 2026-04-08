@@ -3,11 +3,11 @@ using GrpcServiceApi.Entities;
 
 namespace GrpcServiceApi.Services;
 
-public class ServerUserService(IUserManagerService userManagerService) : UserService.UserServiceBase
+public class ServerUserService(IUserManagerRepository userManagerRepository) : UserService.UserServiceBase
 {
     public override Task<GetAllUsersResponse> GetAll(GetAllUsersRequest request, ServerCallContext context)
     {
-        var users = userManagerService.GetAll();
+        var users = userManagerRepository.GetAll();
         var response = new GetAllUsersResponse();
         response.Users.AddRange(users.Select(MapToDto));
         return Task.FromResult(response);
@@ -15,7 +15,7 @@ public class ServerUserService(IUserManagerService userManagerService) : UserSer
 
     public override Task<GetUserByIdResponse> GetById(GetUserByIdRequest request, ServerCallContext context)
     {
-        var user = userManagerService.GetById(Guid.Parse(request.Id));
+        var user = userManagerRepository.GetById(Guid.Parse(request.Id));
         var response = new GetUserByIdResponse();
         if (user is not null)
             response.User = MapToDto(user);
@@ -24,7 +24,7 @@ public class ServerUserService(IUserManagerService userManagerService) : UserSer
 
     public override Task<CreateUserResponse> Create(CreateUserRequest request, ServerCallContext context)
     {
-        var user = userManagerService.Create(new User
+        var user = userManagerRepository.Create(new User
         {
             FirstName = request.FirstName,
             LastName = request.LastName,
@@ -35,7 +35,7 @@ public class ServerUserService(IUserManagerService userManagerService) : UserSer
 
     public override Task<UpdateUserResponse> Update(UpdateUserRequest request, ServerCallContext context)
     {
-        var success = userManagerService.Update(Guid.Parse(request.Id), new User
+        var success = userManagerRepository.Update(Guid.Parse(request.Id), new User
         {
             Id = Guid.Parse(request.Id),
             FirstName = request.FirstName,
@@ -47,7 +47,7 @@ public class ServerUserService(IUserManagerService userManagerService) : UserSer
 
     public override Task<DeleteUserResponse> Delete(DeleteUserRequest request, ServerCallContext context)
     {
-        var success = userManagerService.DeleteById(Guid.Parse(request.Id));
+        var success = userManagerRepository.DeleteById(Guid.Parse(request.Id));
         return Task.FromResult(new DeleteUserResponse { Success = success });
     }
 
