@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
+builder.AddServiceDefaults();
 
 builder.Services.AddSingleton<IUserManagerService, UserManagerService>();
 

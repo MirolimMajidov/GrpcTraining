@@ -3,6 +3,7 @@ using GrpcServiceClient.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 

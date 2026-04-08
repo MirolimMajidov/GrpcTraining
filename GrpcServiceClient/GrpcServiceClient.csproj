@@ -19,4 +19,8 @@
         <Protobuf Include="Protos\UserService.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GrpcServiceDefaults\GrpcServiceDefaults.csproj" />
+    </ItemGroup>
+
 </Project>
