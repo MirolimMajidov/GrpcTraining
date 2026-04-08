@@ -4,7 +4,7 @@ using GrpcServiceClient.Entities;
 
 namespace GrpcServiceClient.Services;
 
-public class ClientUserService(UserService.UserServiceClient client) : IUserService
+internal class UserService(GrpcServiceApi.UserService.UserServiceClient client) : IUserService
 {
     public User[] GetAll()
     {

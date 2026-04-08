@@ -1,5 +1,6 @@
 using GrpcServiceApi;
 using GrpcServiceClient.Services;
+using UserService = GrpcServiceClient.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,12 +8,12 @@ builder.AddServiceDefaults();
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
-builder.Services.AddGrpcClient<UserService.UserServiceClient>(options =>
+builder.Services.AddGrpcClient<GrpcServiceApi.UserService.UserServiceClient>(options =>
 {
     options.Address = new Uri(builder.Configuration["GrpcServer:Address"]!);
 });
 
-builder.Services.AddScoped<IUserService, ClientUserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
