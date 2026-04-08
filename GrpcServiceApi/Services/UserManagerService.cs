@@ -7,7 +7,7 @@ public class UserManagerService : IUserManagerService
 {
     private readonly ConcurrentDictionary<Guid, User> _users = new();
 
-    public User[] GetAll(Guid userId)
+    public User[] GetAll()
     {
         return _users.Values.ToArray();
     }
@@ -15,6 +15,13 @@ public class UserManagerService : IUserManagerService
     public User GetById(Guid userId)
     {
         _users.TryGetValue(userId, out var user);
+        return user;
+    }
+
+    public User Create(User user)
+    {
+        user.Id = Guid.NewGuid();
+        _users[user.Id] = user;
         return user;
     }
 
