@@ -8,6 +8,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcServiceClient", "GrpcSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcServiceDefaults", "GrpcServiceDefaults\GrpcServiceDefaults.csproj", "{1C4A81F0-E569-4FE7-9DE3-DC3EB9445E15}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A9A0CD49-E50A-4CD4-AA5E-F97DE52CE4E8}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\gRPC.pdf = Docs\gRPC.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
