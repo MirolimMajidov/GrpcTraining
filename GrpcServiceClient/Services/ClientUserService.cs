@@ -24,7 +24,7 @@ public class ClientUserService(UserService.UserServiceClient client) : IUserServ
         {
             FirstName = createUser.FirstName,
             LastName = createUser.LastName,
-            Age = createUser.Age
+            Age = createUser.Age.ToString()
         });
         return MapToEntity(response.User);
     }
@@ -36,7 +36,7 @@ public class ClientUserService(UserService.UserServiceClient client) : IUserServ
             Id = userId.ToString(),
             FirstName = newUser.FirstName,
             LastName = newUser.LastName,
-            Age = newUser.Age
+            Age = newUser.Age.ToString()
         });
         return response.Success;
     }
