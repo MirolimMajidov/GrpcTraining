@@ -1,5 +1,5 @@
-﻿using GrpcServiceApi.Entities;
-using GrpcServiceClient.Contracts;
+﻿using GrpcServiceClient.Contracts;
+using GrpcServiceClient.Entities;
 
 namespace GrpcServiceClient.Services;
 

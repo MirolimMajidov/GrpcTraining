@@ -16,7 +16,7 @@ message UserMessage {
   string id = 1;
   string first_name = 2;
   string last_name = 3;
-  string age = 4;
+  int32 age = 4;
 }
 
 message GetAllUsersRequest {}
@@ -36,7 +36,7 @@ message GetUserByIdResponse {
 message CreateUserRequest {
   string first_name = 1;
   string last_name = 2;
-  string age = 3;
+  int32 age = 3;
 }
 
 message CreateUserResponse {
@@ -47,7 +47,7 @@ message UpdateUserRequest {
   string id = 1;
   string first_name = 2;
   string last_name = 3;
-  string age = 4;
+  int32 age = 4;
 }
 
 message UpdateUserResponse {

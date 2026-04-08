@@ -1,4 +1,4 @@
-namespace GrpcServiceApi.Entities;
+namespace GrpcServiceClient.Entities;
 
 public class User
 {
@@ -6,5 +6,5 @@ public class User
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string FullName => $"{FirstName} {LastName}";
-    public string Age { get; set; }
+    public int Age { get; set; }
 }

@@ -1,6 +1,6 @@
 using GrpcServiceApi;
-using GrpcServiceApi.Entities;
 using GrpcServiceClient.Contracts;
+using GrpcServiceClient.Entities;
 
 namespace GrpcServiceClient.Services;
 
@@ -24,7 +24,7 @@ public class ClientUserService(UserService.UserServiceClient client) : IUserServ
         {
             FirstName = createUser.FirstName,
             LastName = createUser.LastName,
-            Age = createUser.Age.ToString()
+            Age = createUser.Age
         });
         return MapToEntity(response.User);
     }
@@ -36,7 +36,7 @@ public class ClientUserService(UserService.UserServiceClient client) : IUserServ
             Id = userId.ToString(),
             FirstName = newUser.FirstName,
             LastName = newUser.LastName,
-            Age = newUser.Age.ToString()
+            Age = newUser.Age
         });
         return response.Success;
     }
